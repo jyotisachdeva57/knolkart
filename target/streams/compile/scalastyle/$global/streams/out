@@ -1,0 +1,21 @@
+[0m[[0m[0minfo[0m] [0m[0mscalastyle using config /home/knoldus/IdeaProjects/s/scalastyle-config.xml[0m
+[0m[[0m[0mdebug[0m] [0m[0mStarting scalastyle[0m
+[0m[[0m[0mdebug[0m] [0m[0mstart file /home/knoldus/IdeaProjects/s/src/main/scala/edu/KnolKart/menu/MenuLauncher.scala[0m
+[0m[[0m[33mwarn[0m] [0m[0m/home/knoldus/IdeaProjects/s/src/main/scala/edu/KnolKart/menu/MenuLauncher.scala:1: Header does not match expected text[0m
+[0m[[0m[0mdebug[0m] [0m[0mend file /home/knoldus/IdeaProjects/s/src/main/scala/edu/KnolKart/menu/MenuLauncher.scala[0m
+[0m[[0m[0mdebug[0m] [0m[0mstart file /home/knoldus/IdeaProjects/s/src/main/scala/edu/KnolKart/modules/services/Operations.scala[0m
+[0m[[0m[33mwarn[0m] [0m[0m/home/knoldus/IdeaProjects/s/src/main/scala/edu/KnolKart/modules/services/Operations.scala:1: Header does not match expected text[0m
+[0m[[0m[0mdebug[0m] [0m[0mend file /home/knoldus/IdeaProjects/s/src/main/scala/edu/KnolKart/modules/services/Operations.scala[0m
+[0m[[0m[0mdebug[0m] [0m[0mstart file /home/knoldus/IdeaProjects/s/src/main/scala/edu/KnolKart/modules/functionentity/Product.scala[0m
+[0m[[0m[33mwarn[0m] [0m[0m/home/knoldus/IdeaProjects/s/src/main/scala/edu/KnolKart/modules/functionentity/Product.scala:1: Header does not match expected text[0m
+[0m[[0m[0mdebug[0m] [0m[0mend file /home/knoldus/IdeaProjects/s/src/main/scala/edu/KnolKart/modules/functionentity/Product.scala[0m
+[0m[[0m[0mdebug[0m] [0m[0mstart file /home/knoldus/IdeaProjects/s/src/main/scala/edu/KnolKart/modules/functionentity/Vendor.scala[0m
+[0m[[0m[33mwarn[0m] [0m[0m/home/knoldus/IdeaProjects/s/src/main/scala/edu/KnolKart/modules/functionentity/Vendor.scala:1: Header does not match expected text[0m
+[0m[[0m[0mdebug[0m] [0m[0mend file /home/knoldus/IdeaProjects/s/src/main/scala/edu/KnolKart/modules/functionentity/Vendor.scala[0m
+[0m[[0m[0minfo[0m] [0m[0mscalastyle Processed 4 file(s)[0m
+[0m[[0m[0minfo[0m] [0m[0mscalastyle Found 0 errors[0m
+[0m[[0m[0minfo[0m] [0m[0mscalastyle Found 4 warnings[0m
+[0m[[0m[0minfo[0m] [0m[0mscalastyle Found 0 infos[0m
+[0m[[0m[0minfo[0m] [0m[0mscalastyle Finished in 10 ms[0m
+[0m[[0m[32msuccess[0m] [0m[0mcreated output: /home/knoldus/IdeaProjects/s/target[0m
+[0m[[0m[33mwarn[0m] [0m[0mwarnings exist[0m

@@ -8,19 +8,6 @@ import scala.collection.immutable.ListMap
 
 class Operations[A](products: Map[Int, A]) {
 
-
-  def sortProducts(products: Map[Int, Product], sortParameter: String): Map[Int, Product] = {
-    sortParameter.toLowerCase match {
-
-      case "low to high" => ListMap(products.toSeq.sortWith(_._2.price < _._2.price): _*)
-
-      case "high to low" => ListMap(products.toSeq.sortWith(_._2.price > _._2.price): _*)
-
-      case _ => ListMap(products.toSeq.sortWith(_._2.price < _._2.price): _*)
-    }
-  }
-
-
   def takeInput: Product = {
     import scala.io.StdIn._
     val log = Logger.getLogger(this.getClass)
@@ -43,26 +30,40 @@ class Operations[A](products: Map[Int, A]) {
     Product(productID, productName, productDesc, productCategory, productPrice, productCount, Vendor(vendorName, vendorID))
   }
 
-  def updateItemCount(products: Map[Int, Product], itemID: Int, updateBy: Int, f: (Int, Int) => Int): Map[Int, Product] = {
-    // val hold=products.map(x => if(x._1 == itemID) (x._1, x._2.productCount - updateBy) else (x._1, x._2))
-    //
-    //    val productOldCount = products.filter((t) => t._1 == itemID)
-    //    val hope=productOldCount.get(itemID)
+
+  def updateItemCount(products: Map[Int, A], itemID: Int, updateBy: Int, f: (Int, Int) => Int): Map[Int, A] = {
     val obj = products(itemID)
-    val hold = products - itemID
-    val itemWithNewCount = obj.copy(productCount = f(obj.productCount, updateBy))
-    val res = hold + (itemID -> itemWithNewCount)
-    res
+    obj match {
+      case pro: Product =>
+        val current=pro.asInstanceOf[Product]
+        val hold = products - itemID
+        val itemWithNewCount = current.copy(productCount = f(current.productCount, updateBy))
+        val res = hold + (itemID -> itemWithNewCount.asInstanceOf[A])
+        res
+      case _ => products
+    }
   }
 
 
-  def findByID(products: Map[Int, Product], itemID: Int): Map[Int, Product] = {
+  def findByID(products: Map[Int, A], itemID: Int): Map[Int, A] = {
     products.filter((t) => t._1 == itemID)
   }
 
 
-  def findByCategory(products: Map[Int, Product], categoryFilter: String): Map[Int, Product] = {
-    products.filter((t) => t._2.category == categoryFilter)
+  def findByCategory(products: Map[Int, A], categoryFilter: String): Map[Int, A] = {
+    if (products.nonEmpty) {
+      val (a, b) = products.head
+      if (b.isInstanceOf[Product]) {
+        products.filter((t) => t._2.asInstanceOf[Product].category == categoryFilter)
+      }
+      else {
+        products
+      }
+
+    }
+    else {
+      products
+    }
   }
 
 
@@ -74,7 +75,25 @@ class Operations[A](products: Map[Int, A]) {
     products - key
   }
 
-
+  def sortProducts(products: Map[Int, A], sortParameter: String): Map[Int, A] = {
+    if (products.nonEmpty) {
+      val (a, b) = products.head
+      if (b.isInstanceOf[Product]) {
+        sortParameter.toLowerCase match {
+          case "low to high" => ListMap(products.toSeq.sortWith(_._2.asInstanceOf[Product].price < _._2.asInstanceOf[Product].price): _*)
+          case "high to low" => ListMap(products.toSeq.sortWith(_._2.asInstanceOf[Product].price > _._2.asInstanceOf[Product].price): _*)
+          case "default" => ListMap(products.toSeq.sortWith(_._2.asInstanceOf[Product].price < _._2.asInstanceOf[Product].price): _*)
+        }
+      }
+      else {
+        products
+      }
+    }
+    else {
+      products
+    }
+  }
 }
+
 
 
